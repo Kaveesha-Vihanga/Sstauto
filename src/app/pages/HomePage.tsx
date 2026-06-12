@@ -49,9 +49,9 @@ export default function HomePage() {
   };
 
   return (
-    <div>
+    <div className="bg-black">
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative h-screen flex flex-col items-stretch justify-start overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
           <video
@@ -62,118 +62,161 @@ export default function HomePage() {
             playsInline
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-          <motion.div
+        {/* Spacer - Flexible space for video visibility */}
+        <div className="flex-grow" />
+
+        {/* Text Content - Bottom Left */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-0 flex-shrink-0"
+        >
+          {/* Eyebrow */}
+          <motion.span
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-[#e11d2e] text-xs inline-block mb-4"
+            style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em' }}
+          >
+            Sri Lanka's Premium Auto Dealer
+          </motion.span>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            className="text-white mb-4 leading-tight max-w-2xl"
+            style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, letterSpacing: '-0.02em', fontSize: 'clamp(2.2rem, 7vw, 3.8rem)' }}
+          >
+            Drive Your
+            <br />
+            <span className="text-[#e11d2e]">Dream</span> Car
+            <br />
+            Today.
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
+            className="text-white/75 text-sm sm:text-base mb-8 leading-relaxed max-w-md"
+            style={{ fontFamily: 'Inter, sans-serif' }}
           >
-            {/* Eyebrow */}
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-px bg-[#e11d2e]" />
-              <span className="text-[#e11d2e] text-sm" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
-                Sri Lanka's Premium Auto Dealer
-              </span>
-            </div>
+            Discover Sri Lanka's finest selection of premium pre-owned vehicles. Every car thoroughly inspected, transparently priced, and backed by our quality guarantee.
+          </motion.p>
+        </motion.div>
 
-            {/* Headline */}
-            <h1 className="text-white mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.0 }}>
-              Drive Your
-              <br />
-              <span className="text-[#e11d2e]">Dream</span> Car
-              <br />
-              Today.
-            </h1>
-
-            <p className="text-white/70 text-lg mb-10 max-w-xl leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Discover Sri Lanka's finest selection of premium pre-owned vehicles — every car thoroughly inspected, transparently priced, and backed by our quality guarantee.
-            </p>
-
-            {/* Search Bar */}
-            <form onSubmit={handleSearch} className="bg-white rounded-2xl p-2 shadow-2xl max-w-2xl">
-              <div className="flex flex-col sm:flex-row gap-2">
-                <div className="flex-1 relative">
-                  <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94a3b8]" />
-                  <input
-                    type="text"
-                    placeholder="Search by brand, model, or keyword…"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-9 pr-3 py-3 text-[#0a0a0a] placeholder:text-[#94a3b8] focus:outline-none text-sm rounded-xl"
-                    style={{ fontFamily: 'Inter, sans-serif' }}
-                  />
-                </div>
-                <select
-                  value={selectedBrand}
-                  onChange={(e) => setSelectedBrand(e.target.value)}
-                  className="px-3 py-3 text-sm text-[#64748b] focus:outline-none rounded-xl bg-[#f8fafc] border border-[#e2e8f0]"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                >
-                  <option value="">All Brands</option>
-                  {brands.map((b) => <option key={b} value={b}>{b}</option>)}
-                </select>
-                <select
-                  value={selectedFuel}
-                  onChange={(e) => setSelectedFuel(e.target.value)}
-                  className="px-3 py-3 text-sm text-[#64748b] focus:outline-none rounded-xl bg-[#f8fafc] border border-[#e2e8f0]"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                >
-                  <option value="">All Fuel Types</option>
-                  {['Petrol', 'Diesel', 'Hybrid', 'Electric'].map((f) => <option key={f} value={f}>{f}</option>)}
-                </select>
-                <button
-                  type="submit"
-                  className="bg-[#e11d2e] hover:bg-[#c01727] text-white px-6 py-3 rounded-xl text-sm transition-all duration-200 hover:shadow-lg hover:shadow-red-500/30 shrink-0"
-                  style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
-                >
-                  Search
-                </button>
-              </div>
-            </form>
-
-            {/* Quick Brands */}
-            <div className="flex flex-wrap gap-2 mt-6">
-              {brands.map((brand) => (
-                <button
-                  key={brand}
-                  onClick={() => navigate(`/vehicles?brand=${brand}`)}
-                  className="px-3 py-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white/80 hover:text-white text-xs rounded-full transition-all duration-200 backdrop-blur-sm"
-                  style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 600 }}
-                >
-                  {brand}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Stats bar at bottom */}
+        {/* Stats Bar */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="absolute bottom-0 left-0 right-0 bg-[#0a0a0a]/80 backdrop-blur-md border-t border-white/10"
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="relative z-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 border-t border-white/5 w-full"
         >
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-5">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <p className="text-white" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.5rem', letterSpacing: '-0.02em' }}>
-                    {stat.value}
-                  </p>
-                  <p className="text-white/50 text-xs mt-0.5" style={{ fontFamily: 'Inter, sans-serif' }}>
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: i * 0.15, ease: "easeOut" }}
+                className="text-center group cursor-default"
+              >
+                <p className="text-white group-hover:text-[#e11d2e] transition-colors duration-300" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1.3rem, 4vw, 1.8rem)', letterSpacing: '-0.02em' }}>
+                  {stat.value}
+                </p>
+                <p className="text-white/40 text-xs mt-2 group-hover:text-white/60 transition-colors duration-300" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}>
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
+
+        {/* Search Bar Section */}
+        <div className="relative z-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+          <motion.form
+            onSubmit={handleSearch}
+            initial={{ opacity: 0, y: 80, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="bg-white rounded-2xl p-2.5 shadow-2xl max-w-4xl mx-auto"
+          >
+            <div className="flex flex-col sm:flex-row gap-2">
+              <div className="flex-1 relative">
+                <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#94a3b8]" />
+                <input
+                  type="text"
+                  placeholder="Search by brand, model, or keyword…"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 text-[#0a0a0a] placeholder:text-[#94a3b8] focus:outline-none text-sm rounded-xl transition-all"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                />
+              </div>
+              <select
+                value={selectedBrand}
+                onChange={(e) => setSelectedBrand(e.target.value)}
+                className="px-4 py-3 text-sm text-[#64748b] focus:outline-none rounded-xl bg-white border border-[#e2e8f0] transition-all"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                <option value="">All Brands</option>
+                {brands.map((b) => <option key={b} value={b}>{b}</option>)}
+              </select>
+              <select
+                value={selectedFuel}
+                onChange={(e) => setSelectedFuel(e.target.value)}
+                className="px-4 py-3 text-sm text-[#64748b] focus:outline-none rounded-xl bg-white border border-[#e2e8f0] transition-all"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                <option value="">All Fuel Types</option>
+                {['Petrol', 'Diesel', 'Hybrid', 'Electric'].map((f) => <option key={f} value={f}>{f}</option>)}
+              </select>
+              <button
+                type="submit"
+                className="bg-[#e11d2e] hover:bg-[#c01727] text-white px-8 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-red-500/40 shrink-0 group"
+                style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
+              >
+                Search
+              </button>
+            </div>
+          </motion.form>
+
+          {/* Quick Brands */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+            className="flex flex-wrap gap-2 mt-6 max-w-4xl mx-auto justify-center sm:justify-start"
+          >
+            {brands.map((brand, i) => (
+              <motion.button
+                key={brand}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 + i * 0.06, ease: "easeOut" }}
+                onClick={() => navigate(`/vehicles?brand=${brand}`)}
+                className="px-3.5 py-1.5 bg-white/15 hover:bg-white/25 border border-white/40 text-white/80 hover:text-white text-xs rounded-full transition-all duration-200 backdrop-blur-sm font-medium hover:shadow-lg"
+                style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 600 }}
+              >
+                {brand}
+              </motion.button>
+            ))}
+          </motion.div>
+        </div>
       </section>
 
       {/* ── FEATURED VEHICLES ── */}
