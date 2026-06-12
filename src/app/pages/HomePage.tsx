@@ -6,7 +6,7 @@ import { vehicles, brands, formatPrice } from '../data/vehicles';
 import { blogPosts } from '../data/blog';
 import VehicleCard from '../components/VehicleCard';
 
-const HERO_IMG = 'https://images.unsplash.com/photo-1618642624018-a370cbf3cd80?w=1920&h=1080&fit=crop&auto=format&q=90';
+const HERO_VIDEO = '/hero-video.mp4';
 const SHOWROOM_IMG = 'https://images.unsplash.com/photo-1778942855146-3a7c73f261f2?w=1200&h=800&fit=crop&auto=format';
 
 const testimonials = [
@@ -54,7 +54,14 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="SST Auto showroom" className="w-full h-full object-cover" />
+          <video
+            src={HERO_VIDEO}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         </div>
