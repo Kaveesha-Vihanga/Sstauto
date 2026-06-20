@@ -117,44 +117,44 @@ export default function VehicleDetailPage() {
             </div>
 
             {/* Title + Badges */}
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6">
-              <div className="flex items-start justify-between mb-4">
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-4 sm:p-6">
+              <div className="flex items-start justify-between mb-3 sm:mb-4">
                 <div>
-                  <p className="text-[#e11d2e] text-xs mb-1" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                  <p className="text-[#e11d2e] text-xs mb-0.5 sm:mb-1" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                     {vehicle.brand}
                   </p>
-                  <h1 className="text-[#0a0a0a]" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', letterSpacing: '-0.03em' }}>
+                  <h1 className="text-[#0a0a0a]" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, fontSize: 'clamp(1.25rem, 4vw, 2.25rem)', letterSpacing: '-0.03em' }}>
                     {vehicle.year} {vehicle.model}
                   </h1>
-                  <p className="text-[#64748b]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  <p className="text-[#64748b] text-sm sm:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
                     {vehicle.variant}
                   </p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 shrink-0">
                   <button
                     onClick={() => setSaved(!saved)}
-                    className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-all ${saved ? 'bg-[#e11d2e] border-[#e11d2e] text-white' : 'border-[#e2e8f0] text-[#64748b] hover:border-[#e11d2e] hover:text-[#e11d2e]'}`}
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl border flex items-center justify-center transition-all ${saved ? 'bg-[#e11d2e] border-[#e11d2e] text-white' : 'border-[#e2e8f0] text-[#64748b] hover:border-[#e11d2e] hover:text-[#e11d2e]'}`}
                   >
                     <Heart size={16} fill={saved ? 'currentColor' : 'none'} />
                   </button>
-                  <button className="w-10 h-10 rounded-xl border border-[#e2e8f0] flex items-center justify-center text-[#64748b] hover:border-[#0a0a0a] transition-all">
+                  <button className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-[#e2e8f0] flex items-center justify-center text-[#64748b] hover:border-[#0a0a0a] transition-all">
                     <Share2 size={16} />
                   </button>
                 </div>
               </div>
 
               {/* Key specs strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                 {[
                   { icon: Calendar, label: 'Year', value: vehicle.year.toString() },
                   { icon: Gauge, label: 'Mileage', value: formatMileage(vehicle.mileage) },
                   { icon: vehicle.fuel === 'Electric' ? Zap : Fuel, label: 'Fuel', value: vehicle.fuel },
                   { icon: Shield, label: 'Transmission', value: vehicle.transmission },
                 ].map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="bg-[#f8fafc] rounded-xl p-3 text-center">
-                    <Icon size={16} className="text-[#e11d2e] mx-auto mb-1" />
+                  <div key={label} className="bg-[#f8fafc] rounded-xl p-2.5 sm:p-3 text-center">
+                    <Icon size={14} className="text-[#e11d2e] mx-auto mb-0.5 sm:mb-1" />
                     <p className="text-xs text-[#64748b] mb-0.5" style={{ fontFamily: 'Inter, sans-serif' }}>{label}</p>
-                    <p className="text-[#0a0a0a] text-sm" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>{value}</p>
+                    <p className="text-[#0a0a0a] text-xs sm:text-sm" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>{value}</p>
                   </div>
                 ))}
               </div>
@@ -174,10 +174,10 @@ export default function VehicleDetailPage() {
                   </button>
                 ))}
               </div>
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 {activeTab === 'overview' && (
                   <div>
-                    <p className="text-[#374151] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif', lineHeight: 1.8 }}>
+                    <p className="text-[#374151] leading-relaxed text-sm sm:text-base" style={{ fontFamily: 'Inter, sans-serif', lineHeight: 1.8 }}>
                       {vehicle.description}
                     </p>
                     <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -225,23 +225,23 @@ export default function VehicleDetailPage() {
           {/* Right: Price + Contact + Finance */}
           <div className="space-y-5">
             {/* Price card */}
-            <div className="bg-[#0a0a0a] rounded-2xl p-6 text-white sticky top-24">
-              <p className="text-white/50 text-sm mb-1" style={{ fontFamily: 'Inter, sans-serif' }}>Asking Price</p>
-              <p className="mb-1" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, fontSize: '2rem', letterSpacing: '-0.03em' }}>
+            <div className="bg-[#0a0a0a] rounded-2xl p-4 sm:p-6 text-white lg:sticky lg:top-24">
+              <p className="text-white/50 text-xs sm:text-sm mb-1" style={{ fontFamily: 'Inter, sans-serif' }}>Asking Price</p>
+              <p className="mb-1" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, fontSize: 'clamp(1.5rem, 5vw, 2rem)', letterSpacing: '-0.03em' }}>
                 {formatPrice(vehicle.price)}
               </p>
               {vehicle.badge && (
-                <span className="inline-block bg-[#e11d2e] text-white text-xs px-2.5 py-1 rounded-full mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>
+                <span className="inline-block bg-[#e11d2e] text-white text-xs px-2.5 py-1 rounded-full mb-3 sm:mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>
                   {vehicle.badge}
                 </span>
               )}
 
-              <div className="space-y-3 mt-4">
+              <div className="space-y-2 sm:space-y-3 mt-3 sm:mt-4">
                 <a
                   href={`https://wa.me/94771234567?text=Hi%20SST%20Auto%2C%20I'm%20interested%20in%20the%20${vehicle.year}%20${vehicle.brand}%20${vehicle.model}%20${vehicle.variant}%20(ID%3A${vehicle.id}).%20Please%20send%20me%20more%20information.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-[#25d366] hover:bg-[#1ea855] text-white py-3.5 rounded-xl text-sm transition-all duration-200"
+                  className="flex items-center justify-center gap-2 w-full bg-[#25d366] hover:bg-[#1ea855] text-white py-3 sm:py-3.5 rounded-xl text-sm transition-all duration-200"
                   style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
                 >
                   <MessageCircle size={16} />
@@ -249,7 +249,7 @@ export default function VehicleDetailPage() {
                 </a>
                 <a
                   href="tel:+94112345678"
-                  className="flex items-center justify-center gap-2 w-full bg-white/10 hover:bg-white/20 text-white py-3.5 rounded-xl text-sm transition-all duration-200"
+                  className="flex items-center justify-center gap-2 w-full bg-white/10 hover:bg-white/20 text-white py-3 sm:py-3.5 rounded-xl text-sm transition-all duration-200"
                   style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
                 >
                   <Phone size={16} />
@@ -257,7 +257,7 @@ export default function VehicleDetailPage() {
                 </a>
               </div>
 
-              <div className="mt-4 p-3 bg-white/5 rounded-xl border border-white/10">
+              <div className="mt-3 sm:mt-4 p-3 bg-white/5 rounded-xl border border-white/10">
                 <div className="flex gap-2 text-xs text-white/60" style={{ fontFamily: 'Inter, sans-serif' }}>
                   <Clock size={13} className="shrink-0 mt-0.5" />
                   Typically responds within 15 minutes on WhatsApp
@@ -265,7 +265,7 @@ export default function VehicleDetailPage() {
               </div>
 
               {/* Trust badges */}
-              <div className="mt-4 space-y-2">
+              <div className="mt-3 sm:mt-4 space-y-2">
                 {[
                   { icon: Shield, text: '100-Point Inspection Certified' },
                   { icon: Award, text: 'Verified Ownership Documents' },
@@ -280,8 +280,8 @@ export default function VehicleDetailPage() {
             </div>
 
             {/* Finance Estimator */}
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6">
-              <h3 className="text-[#0a0a0a] mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.1rem' }}>
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-4 sm:p-6">
+              <h3 className="text-[#0a0a0a] mb-3 sm:mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)' }}>
                 Finance Estimate
               </h3>
               <div className="space-y-4">
@@ -334,14 +334,14 @@ export default function VehicleDetailPage() {
             </div>
 
             {/* Inquiry Form */}
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6">
-              <h3 className="text-[#0a0a0a] mb-1" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.1rem' }}>
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-4 sm:p-6">
+              <h3 className="text-[#0a0a0a] mb-1" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)' }}>
                 Send an Inquiry
               </h3>
-              <p className="text-[#64748b] text-xs mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-[#64748b] text-xs mb-3 sm:mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>
                 We'll respond within 2 hours on weekdays.
               </p>
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
                 <input type="text" placeholder="Your Name" className="w-full px-3 py-2.5 bg-[#f8fafc] border border-[#e2e8f0] rounded-lg text-sm text-[#0a0a0a] placeholder:text-[#94a3b8] focus:outline-none focus:border-[#e11d2e]" style={{ fontFamily: 'Inter, sans-serif' }} />
                 <input type="tel" placeholder="Phone Number" className="w-full px-3 py-2.5 bg-[#f8fafc] border border-[#e2e8f0] rounded-lg text-sm text-[#0a0a0a] placeholder:text-[#94a3b8] focus:outline-none focus:border-[#e11d2e]" style={{ fontFamily: 'Inter, sans-serif' }} />
                 <textarea

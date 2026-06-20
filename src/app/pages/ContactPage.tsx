@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, MessageCircle, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle, CircleCheck as CheckCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function ContactPage() {
@@ -27,8 +27,8 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact info */}
           <div className="space-y-5">
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6">
-              <h3 className="text-[#0a0a0a] mb-5" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.1rem' }}>
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-6">
+              <h3 className="text-[#0a0a0a] mb-4 sm:mb-5" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)' }}>
                 Contact Information
               </h3>
               <div className="space-y-5">

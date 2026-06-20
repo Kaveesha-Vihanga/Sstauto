@@ -64,7 +64,7 @@ export default function FinanceCalculatorPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Controls */}
           <div className="lg:col-span-1 space-y-5">
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6">
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-6">
               <h2 className="text-[#0a0a0a] mb-5" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.1rem' }}>
                 Loan Parameters
               </h2>
@@ -143,8 +143,8 @@ export default function FinanceCalculatorPage() {
             </div>
 
             {/* Quick input */}
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6">
-              <h3 className="text-[#0a0a0a] mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}>
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-6">
+              <h3 className="text-[#0a0a0a] mb-3 sm:mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}>
                 Enter Price Directly
               </h3>
               <div className="relative">
@@ -159,8 +159,8 @@ export default function FinanceCalculatorPage() {
               </div>
             </div>
 
-            <div className="bg-[#0a0a0a] rounded-2xl p-6 text-white">
-              <p className="text-white text-sm mb-3" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>
+            <div className="bg-[#0a0a0a] rounded-2xl p-5 sm:p-6 text-white">
+              <p className="text-white text-sm mb-2 sm:mb-3" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>
                 Ready to apply for finance?
               </p>
               <p className="text-white/50 text-xs mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -182,7 +182,7 @@ export default function FinanceCalculatorPage() {
           {/* Results */}
           <div className="lg:col-span-2 space-y-6">
             {/* Summary cards */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {summaryCards.map(({ icon: Icon, label, value, sub, color }) => (
                 <div key={label} className="bg-white rounded-2xl border border-[#e2e8f0] p-5">
                   <div className="flex items-center gap-2 mb-3">
@@ -200,11 +200,11 @@ export default function FinanceCalculatorPage() {
             </div>
 
             {/* Loan balance chart */}
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6">
-              <h3 className="text-[#0a0a0a] mb-1" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.1rem' }}>
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-6">
+              <h3 className="text-[#0a0a0a] mb-1" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)' }}>
                 Remaining Balance Over Time
               </h3>
-              <p className="text-[#64748b] text-xs mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>LKR (thousands)</p>
+              <p className="text-[#64748b] text-xs mb-4 sm:mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>LKR (thousands)</p>
               <ResponsiveContainer width="100%" height={250}>
                 <AreaChart data={chartData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                   <defs>
@@ -227,11 +227,11 @@ export default function FinanceCalculatorPage() {
             </div>
 
             {/* Monthly breakdown chart */}
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6">
-              <h3 className="text-[#0a0a0a] mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.1rem' }}>
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-6">
+              <h3 className="text-[#0a0a0a] mb-3 sm:mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)' }}>
                 Monthly Breakdown Summary
               </h3>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4">
                 {[
                   { label: 'Monthly Payment', value: `LKR ${Math.round(monthly).toLocaleString()}`, pct: null },
                   { label: 'Total Principal', value: formatPrice(Math.round(financeAmount)), pct: Math.round((financeAmount / totalRepayable) * 100) },

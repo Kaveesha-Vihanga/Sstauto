@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Star, ThumbsUp, CheckCircle, MessageCircle } from 'lucide-react';
+import { Star, ThumbsUp, CircleCheck as CheckCircle, MessageCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 
 const allReviews = [
@@ -51,7 +51,7 @@ export default function ReviewsPage() {
           {/* Sidebar */}
           <div className="space-y-5">
             {/* Overall rating */}
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6 text-center">
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-6 text-center">
               <p className="text-[#0a0a0a]" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, fontSize: '4rem', letterSpacing: '-0.05em', lineHeight: 1 }}>4.9</p>
               <div className="flex justify-center gap-1 my-2">
                 {[...Array(5)].map((_, i) => (
@@ -62,8 +62,8 @@ export default function ReviewsPage() {
             </div>
 
             {/* Rating breakdown */}
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6">
-              <h3 className="text-[#0a0a0a] mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}>Rating Breakdown</h3>
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-6">
+              <h3 className="text-[#0a0a0a] mb-3 sm:mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}>Rating Breakdown</h3>
               <div className="space-y-2">
                 {ratingStats.map(({ stars, count, pct }) => (
                   <button
@@ -88,11 +88,11 @@ export default function ReviewsPage() {
             </div>
 
             {/* Write review CTA */}
-            <div className="bg-[#0a0a0a] rounded-2xl p-6 text-white">
+            <div className="bg-[#0a0a0a] rounded-2xl p-5 sm:p-6 text-white">
               <h3 className="text-white mb-2" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}>
                 Purchased from SST Auto?
               </h3>
-              <p className="text-white/50 text-xs mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>Share your experience to help others make informed decisions.</p>
+              <p className="text-white/50 text-xs mb-3 sm:mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>Share your experience to help others make informed decisions.</p>
               <button
                 onClick={() => setShowForm(true)}
                 className="w-full bg-[#e11d2e] hover:bg-[#c01727] text-white py-3 rounded-xl text-sm transition-colors"
@@ -118,7 +118,7 @@ export default function ReviewsPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: i * 0.05 }}
-                className="bg-white rounded-2xl border border-[#e2e8f0] p-6"
+                className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-6"
               >
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3">
@@ -161,7 +161,7 @@ export default function ReviewsPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl p-8 max-w-lg w-full shadow-2xl"
+            className="bg-white rounded-2xl p-5 sm:p-8 max-w-lg w-full shadow-2xl max-h-[90vh] overflow-y-auto"
           >
             <h2 className="text-[#0a0a0a] mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem' }}>
               Write a Review
@@ -186,7 +186,7 @@ export default function ReviewsPage() {
                 <label className="block text-xs text-[#64748b] mb-1.5" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}>Vehicle Purchased</label>
                 <input type="text" placeholder="e.g. Toyota Camry 2023" className="w-full px-3 py-2.5 bg-[#f8fafc] border border-[#e2e8f0] rounded-lg text-sm text-[#0a0a0a] focus:outline-none focus:border-[#e11d2e]" style={{ fontFamily: 'Inter, sans-serif' }} />
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs text-[#64748b] mb-1.5" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}>Your Name</label>
                   <input type="text" placeholder="Full name" className="w-full px-3 py-2.5 bg-[#f8fafc] border border-[#e2e8f0] rounded-lg text-sm text-[#0a0a0a] focus:outline-none focus:border-[#e11d2e]" style={{ fontFamily: 'Inter, sans-serif' }} />

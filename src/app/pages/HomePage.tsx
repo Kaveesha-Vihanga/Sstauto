@@ -295,15 +295,15 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <Link to={`/vehicles/${vehicle.id}`} className="group block">
-                  <div className="bg-white rounded-2xl border border-black/5 overflow-hidden hover:shadow-lg transition-all duration-300 flex">
-                    <div className="w-40 sm:w-52 shrink-0 bg-[#f8fafc] overflow-hidden">
+                  <div className="bg-white rounded-2xl border border-black/5 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row">
+                    <div className="w-full sm:w-40 md:w-52 shrink-0 bg-[#f8fafc] overflow-hidden aspect-[16/10] sm:aspect-auto">
                       <img
                         src={vehicle.images[0]}
                         alt={`${vehicle.brand} ${vehicle.model}`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
-                    <div className="flex-1 p-5">
+                    <div className="flex-1 p-4 sm:p-5">
                       <div className="flex items-start justify-between mb-2">
                         <div>
                           <p className="text-[#e11d2e] text-xs mb-0.5" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
@@ -391,13 +391,13 @@ export default function HomePage() {
 
           {/* Showroom image */}
           <div className="mt-14 rounded-2xl overflow-hidden relative">
-            <img src={SHOWROOM_IMG} alt="SST Auto showroom" className="w-full h-64 lg:h-80 object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 to-transparent flex items-center">
-              <div className="px-10">
-                <h3 className="text-white mb-2" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.75rem', letterSpacing: '-0.02em' }}>
+            <img src={SHOWROOM_IMG} alt="SST Auto showroom" className="w-full h-64 sm:h-72 lg:h-80 object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/70 to-transparent flex items-center">
+              <div className="px-4 sm:px-6 lg:px-10">
+                <h3 className="text-white mb-2" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1.25rem, 4vw, 1.75rem)', letterSpacing: '-0.02em' }}>
                   Visit Our Showroom
                 </h3>
-                <p className="text-white/60 mb-4 max-w-xs" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <p className="text-white/60 mb-4 max-w-xs text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
                   123 Galle Road, Colombo 03. Open Mon–Sat 9am–7pm, Sun 10am–5pm.
                 </p>
                 <Link
@@ -540,7 +540,7 @@ export default function HomePage() {
                 Get a valuation within 2 hours on any weekday.
               </p>
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs text-[#64748b] mb-1" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}>Brand</label>
                     <select className="w-full px-3 py-2.5 bg-[#f8fafc] border border-[#e2e8f0] rounded-lg text-sm text-[#0a0a0a] focus:outline-none focus:border-[#e11d2e]" style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -593,10 +593,10 @@ export default function HomePage() {
                 Tell us your dream car and we'll source it for you. We have access to vehicles across Sri Lanka and beyond.
               </p>
             </div>
-            <div className="flex gap-3 shrink-0">
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto">
               <Link
                 to="/request"
-                className="bg-white text-[#e11d2e] hover:bg-[#f8fafc] px-7 py-3.5 rounded-xl text-sm transition-all duration-200 shadow-lg"
+                className="bg-white text-[#e11d2e] hover:bg-[#f8fafc] px-7 py-3.5 rounded-xl text-sm transition-all duration-200 shadow-lg text-center"
                 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
               >
                 Request a Vehicle
@@ -605,7 +605,7 @@ export default function HomePage() {
                 href="https://wa.me/94771234567?text=Hi%2C%20I'm%20looking%20for%20a%20specific%20vehicle"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-[#0a0a0a] hover:bg-[#1a1a1a] text-white px-7 py-3.5 rounded-xl text-sm transition-all duration-200"
+                className="flex items-center justify-center gap-2 bg-[#0a0a0a] hover:bg-[#1a1a1a] text-white px-7 py-3.5 rounded-xl text-sm transition-all duration-200"
                 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
               >
                 <MessageCircle size={16} />
@@ -736,12 +736,12 @@ export default function HomePage() {
             </div>
 
             {/* Quick contact form */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-              <h3 className="text-white mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem' }}>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8">
+              <h3 className="text-white mb-4 sm:mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 'clamp(1.1rem, 3vw, 1.25rem)' }}>
                 Send Us a Message
               </h3>
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <input
                       type="text"

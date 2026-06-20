@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CheckCircle, Upload, Camera, Car, DollarSign, FileText, ArrowRight, MessageCircle } from 'lucide-react';
+import { CircleCheck as CheckCircle, Upload, Camera, Car, DollarSign, FileText, ArrowRight, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { brands } from '../data/vehicles';
 
@@ -117,7 +117,7 @@ export default function SellCarPage() {
             <form onSubmit={handleSubmit}>
               <AnimatePresence mode="wait">
                 {step === 1 && (
-                  <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="bg-white rounded-2xl border border-[#e2e8f0] p-8">
+                  <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-8">
                     <h2 className="text-[#0a0a0a] mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem' }}>
                       Vehicle Information
                     </h2>
@@ -176,7 +176,7 @@ export default function SellCarPage() {
                 )}
 
                 {step === 2 && (
-                  <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="bg-white rounded-2xl border border-[#e2e8f0] p-8">
+                  <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-8">
                     <h2 className="text-[#0a0a0a] mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem' }}>
                       Photos & Condition
                     </h2>
@@ -224,7 +224,7 @@ export default function SellCarPage() {
                 )}
 
                 {step === 3 && (
-                  <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="bg-white rounded-2xl border border-[#e2e8f0] p-8">
+                  <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-8">
                     <h2 className="text-[#0a0a0a] mb-2" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem' }}>Your Asking Price</h2>
                     <p className="text-[#64748b] text-sm mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>Leave blank if you'd prefer our expert valuation first.</p>
                     <div>
@@ -248,7 +248,7 @@ export default function SellCarPage() {
                 )}
 
                 {step === 4 && (
-                  <motion.div key="step4" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="bg-white rounded-2xl border border-[#e2e8f0] p-8">
+                  <motion.div key="step4" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-8">
                     <h2 className="text-[#0a0a0a] mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem' }}>Your Contact Details</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
@@ -285,8 +285,8 @@ export default function SellCarPage() {
 
           {/* Sidebar */}
           <div className="space-y-5">
-            <div className="bg-[#0a0a0a] rounded-2xl p-6 text-white">
-              <h3 className="text-white mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.1rem' }}>
+            <div className="bg-[#0a0a0a] rounded-2xl p-5 sm:p-6 text-white">
+              <h3 className="text-white mb-3 sm:mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)' }}>
                 Why Sell to SST Auto?
               </h3>
               <div className="space-y-4">

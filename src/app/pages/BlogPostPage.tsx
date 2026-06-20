@@ -145,9 +145,9 @@ export default function BlogPostPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 bg-[#0a0a0a] rounded-2xl p-8 text-center">
+        <div className="mt-10 bg-[#0a0a0a] rounded-2xl p-6 sm:p-8 text-center">
           <p className="text-white/60 text-xs mb-1 uppercase tracking-wider" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>Ready to find your car?</p>
-          <h3 className="text-white mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.5rem' }}>
+          <h3 className="text-white mb-3 sm:mb-4" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1.25rem, 3vw, 1.5rem)' }}>
             Browse SST Auto's Inventory
           </h3>
           <Link

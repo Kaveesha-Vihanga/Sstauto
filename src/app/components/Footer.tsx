@@ -39,12 +39,12 @@ export default function Footer() {
                 Our team is available 7 days a week to assist you.
               </p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href="https://wa.me/94771234567"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-[#25d366] hover:bg-[#1ea855] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
+                className="flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1ea855] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors"
                 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
               >
                 <MessageCircle size={16} />
@@ -52,7 +52,7 @@ export default function Footer() {
               </a>
               <Link
                 to="/vehicles"
-                className="flex items-center gap-2 bg-[#e11d2e] hover:bg-[#c01727] text-white px-5 py-2.5 rounded-lg text-sm transition-all duration-200"
+                className="flex items-center justify-center gap-2 bg-[#e11d2e] hover:bg-[#c01727] text-white px-5 py-2.5 rounded-lg text-sm transition-all duration-200"
                 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
               >
                 Browse Vehicles

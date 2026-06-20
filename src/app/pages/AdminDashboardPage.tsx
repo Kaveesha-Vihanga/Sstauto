@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { Car, Users, TrendingUp, DollarSign, Plus, Eye, Edit2, Trash2, Search, Bell, Settings, LogOut, ChevronRight, LayoutDashboard, FileText, Star, MessageSquare, BarChart2 } from 'lucide-react';
+import { Car, Users, TrendingUp, DollarSign, Plus, Eye, CreditCard as Edit2, Trash2, Search, Bell, Settings, LogOut, ChevronRight, LayoutDashboard, FileText, Star, MessageSquare, ChartBar as BarChart2 } from 'lucide-react';
 import { vehicles, formatPrice } from '../data/vehicles';
 import { blogPosts } from '../data/blog';
 
@@ -71,8 +71,15 @@ export default function AdminDashboardPage() {
 
   return (
     <div className="min-h-screen bg-[#f8fafc] flex">
+      {/* Mobile sidebar overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
       {/* Sidebar */}
-      <aside className={`${sidebarOpen ? 'w-60' : 'w-16'} bg-[#0a0a0a] flex flex-col transition-all duration-300 shrink-0`}>
+      <aside className={`${sidebarOpen ? 'w-60' : 'w-16'} bg-[#0a0a0a] flex flex-col transition-all duration-300 shrink-0 fixed lg:relative inset-y-0 left-0 z-50 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         {/* Logo */}
         <div className="h-16 flex items-center px-4 border-b border-white/10">
           {sidebarOpen ? (
@@ -116,12 +123,12 @@ export default function AdminDashboardPage() {
       </aside>
 
       {/* Main */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 lg:ml-0">
         {/* Top bar */}
-        <header className="h-16 bg-white border-b border-[#f1f5f9] flex items-center justify-between px-6 shrink-0">
+        <header className="h-16 bg-white border-b border-[#f1f5f9] flex items-center justify-between px-4 sm:px-6 shrink-0">
           <div className="flex items-center gap-3">
-            <button onClick={() => setSidebarOpen(!sidebarOpen)} className="text-[#64748b] hover:text-[#0a0a0a] transition-colors">
-              <LayoutDashboard size={18} />
+            <button onClick={() => setSidebarOpen(!sidebarOpen)} className="text-[#64748b] hover:text-[#0a0a0a] transition-colors p-2 -ml-2 lg:ml-0">
+              <LayoutDashboard size={20} />
             </button>
             <div className="relative hidden sm:block">
               <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94a3b8]" />
@@ -148,11 +155,11 @@ export default function AdminDashboardPage() {
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-auto p-6">
+        <main className="flex-1 overflow-auto p-4 sm:p-6">
           {activePage === 'dashboard' && (
             <div className="space-y-6">
               <div>
-                <h1 className="text-[#0a0a0a]" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, fontSize: '1.5rem', letterSpacing: '-0.02em' }}>Dashboard</h1>
+                <h1 className="text-[#0a0a0a]" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', letterSpacing: '-0.02em' }}>Dashboard</h1>
                 <p className="text-[#64748b] text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>Wednesday, 10 June 2026</p>
               </div>
 

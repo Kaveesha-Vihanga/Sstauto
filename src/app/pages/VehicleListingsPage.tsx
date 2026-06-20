@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router';
-import { Search, SlidersHorizontal, X, ChevronDown, Grid3X3, List } from 'lucide-react';
+import { Search, SlidersHorizontal, X, ChevronDown, Grid3x3 as Grid3X3, List } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { vehicles, brands, fuelTypes, transmissionTypes, bodyTypes, formatPrice } from '../data/vehicles';
 import VehicleCard from '../components/VehicleCard';
@@ -18,47 +18,47 @@ function VehicleListItem({ vehicle }: { vehicle: Vehicle }) {
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
       <a href={`/vehicles/${vehicle.id}`} className="group block">
-        <div className="bg-white rounded-2xl border border-black/5 overflow-hidden hover:shadow-lg transition-all duration-300 flex">
-          <div className="w-48 sm:w-64 shrink-0 bg-[#f8fafc] overflow-hidden">
+        <div className="bg-white rounded-2xl border border-black/5 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row">
+          <div className="w-full sm:w-48 md:w-64 shrink-0 bg-[#f8fafc] overflow-hidden aspect-[16/10] sm:aspect-auto sm:h-auto">
             <img
               src={vehicle.images[0]}
               alt={`${vehicle.brand} ${vehicle.model}`}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
-          <div className="flex-1 p-6">
-            <div className="flex items-start justify-between mb-3">
+          <div className="flex-1 p-4 sm:p-6">
+            <div className="flex items-start justify-between mb-2 sm:mb-3">
               <div>
-                <p className="text-[#e11d2e] text-xs mb-1" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                <p className="text-[#e11d2e] text-xs mb-0.5 sm:mb-1" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   {vehicle.brand}
                 </p>
-                <h3 className="text-[#0a0a0a]" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
+                <h3 className="text-[#0a0a0a]" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 'clamp(0.9rem, 2vw, 1.2rem)', letterSpacing: '-0.02em' }}>
                   {vehicle.year} {vehicle.model} {vehicle.variant}
                 </h3>
               </div>
-              <p className="text-[#0a0a0a]" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em' }}>
+              <p className="text-[#0a0a0a]" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(0.95rem, 2.5vw, 1.25rem)', letterSpacing: '-0.02em' }}>
                 {formatPrice(vehicle.price)}
               </p>
             </div>
-            <div className="flex flex-wrap gap-4 mb-4">
+            <div className="flex flex-wrap gap-2 sm:gap-4 mb-3 sm:mb-4">
               {[
                 `${vehicle.mileage.toLocaleString()} km`,
                 vehicle.fuel,
                 vehicle.transmission,
                 vehicle.color,
               ].map((spec) => (
-                <span key={spec} className="text-sm text-[#64748b]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <span key={spec} className="text-xs sm:text-sm text-[#64748b]" style={{ fontFamily: 'Inter, sans-serif' }}>
                   {spec}
                 </span>
               ))}
             </div>
-            <p className="text-[#64748b] text-sm line-clamp-2 mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>
+            <p className="text-[#64748b] text-sm line-clamp-2 mb-3 sm:mb-4 hidden sm:block" style={{ fontFamily: 'Inter, sans-serif' }}>
               {vehicle.description}
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               <a
                 href={`/vehicles/${vehicle.id}`}
-                className="px-5 py-2 bg-[#0a0a0a] hover:bg-[#1a1a1a] text-white text-sm rounded-lg transition-colors"
+                className="px-4 sm:px-5 py-2 bg-[#0a0a0a] hover:bg-[#1a1a1a] text-white text-sm rounded-lg transition-colors text-center"
                 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
               >
                 View Details
@@ -67,7 +67,7 @@ function VehicleListItem({ vehicle }: { vehicle: Vehicle }) {
                 href={`https://wa.me/94771234567?text=Hi%2C%20I'm%20interested%20in%20the%20${vehicle.year}%20${vehicle.brand}%20${vehicle.model}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2 bg-[#25d366] hover:bg-[#1ea855] text-white text-sm rounded-lg transition-colors"
+                className="px-4 sm:px-5 py-2 bg-[#25d366] hover:bg-[#1ea855] text-white text-sm rounded-lg transition-colors text-center"
                 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
               >
                 WhatsApp

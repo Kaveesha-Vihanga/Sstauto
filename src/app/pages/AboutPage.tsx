@@ -94,8 +94,8 @@ export default function AboutPage() {
                 Every vehicle in our showroom has been hand-selected, thoroughly inspected, and honestly priced. We don't believe in pressure sales — we believe in building long-term relationships with our customers.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#f8fafc] rounded-2xl p-6 border border-[#f1f5f9]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="bg-[#f8fafc] rounded-2xl p-5 sm:p-6 border border-[#f1f5f9]">
                 <div className="w-10 h-10 bg-[#e11d2e] rounded-xl flex items-center justify-center mb-4">
                   <TrendingUp size={18} className="text-white" />
                 </div>
@@ -104,7 +104,7 @@ export default function AboutPage() {
                   To make premium car ownership accessible to every Sri Lankan through transparency, trust, and exceptional service.
                 </p>
               </div>
-              <div className="bg-[#0a0a0a] rounded-2xl p-6 mt-8">
+              <div className="bg-[#0a0a0a] rounded-2xl p-5 sm:p-6 sm:mt-8">
                 <div className="w-10 h-10 bg-[#e11d2e]/20 rounded-xl flex items-center justify-center mb-4">
                   <Globe size={18} className="text-[#e11d2e]" />
                 </div>
@@ -113,12 +113,12 @@ export default function AboutPage() {
                   To be Sri Lanka's most trusted automotive brand, setting the gold standard for the pre-owned vehicle industry.
                 </p>
               </div>
-              <div className="bg-[#e11d2e] rounded-2xl p-6">
+              <div className="bg-[#e11d2e] rounded-2xl p-5 sm:p-6">
                 <Users size={22} className="text-white mb-4" />
                 <p className="text-white" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2rem', letterSpacing: '-0.02em' }}>20+</p>
                 <p className="text-white/80 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>Automotive experts on our team</p>
               </div>
-              <div className="bg-[#f8fafc] rounded-2xl p-6 border border-[#f1f5f9] mt-8">
+              <div className="bg-[#f8fafc] rounded-2xl p-5 sm:p-6 border border-[#f1f5f9] sm:mt-8">
                 <Shield size={22} className="text-[#0a0a0a] mb-4" />
                 <p className="text-[#0a0a0a]" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2rem', letterSpacing: '-0.02em' }}>100%</p>
                 <p className="text-[#64748b] text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>Vehicles inspected before listing</p>
@@ -219,11 +219,11 @@ export default function AboutPage() {
           <p className="text-white/50 mb-8 max-w-lg mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
             Visit our showroom or browse our online inventory to find your perfect vehicle today.
           </p>
-          <div className="flex gap-3 justify-center">
-            <Link to="/vehicles" className="bg-[#e11d2e] hover:bg-[#c01727] text-white px-7 py-3.5 rounded-xl text-sm transition-all" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link to="/vehicles" className="bg-[#e11d2e] hover:bg-[#c01727] text-white px-7 py-3.5 rounded-xl text-sm transition-all text-center" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>
               Browse Vehicles
             </Link>
-            <Link to="/contact" className="bg-white/10 hover:bg-white/20 text-white px-7 py-3.5 rounded-xl text-sm transition-all" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>
+            <Link to="/contact" className="bg-white/10 hover:bg-white/20 text-white px-7 py-3.5 rounded-xl text-sm transition-all text-center" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>
               Visit Showroom
             </Link>
           </div>

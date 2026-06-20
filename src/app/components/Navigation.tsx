@@ -218,14 +218,14 @@ export default function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-[#0a0a0a] border-t border-white/10 overflow-hidden"
+              className="lg:hidden bg-[#0a0a0a] border-t border-white/10 overflow-hidden max-h-[85vh] overflow-y-auto"
             >
-              <div className="px-4 py-6 space-y-1">
+              <div className="px-4 py-4 space-y-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.label}
                     to={link.href}
-                    className="flex items-center px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                    className="flex items-center px-4 py-3 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors text-base"
                     style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 600 }}
                   >
                     {link.label}
@@ -235,12 +235,12 @@ export default function Navigation() {
                   <p className="px-4 text-xs text-white/40 uppercase tracking-wider mb-3" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}>
                     Shop by Brand
                   </p>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {brandLinks.map((brand) => (
                       <Link
                         key={brand.name}
                         to={brand.href}
-                        className="px-4 py-2.5 text-white/70 hover:text-white hover:bg-white/10 rounded-lg text-sm transition-colors"
+                        className="px-3 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg text-sm transition-colors text-center"
                         style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 600 }}
                       >
                         {brand.name}
@@ -248,23 +248,32 @@ export default function Navigation() {
                     ))}
                   </div>
                 </div>
-                <div className="pt-4 border-t border-white/10 grid grid-cols-2 gap-3">
+                <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row gap-3">
                   <a
                     href="https://wa.me/94771234567"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1ea855] text-white px-4 py-3 rounded-lg text-sm font-semibold transition-colors"
+                    className="flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1ea855] text-white py-3 rounded-lg text-sm font-semibold transition-colors"
                   >
                     <MessageCircle size={16} />
                     WhatsApp
                   </a>
                   <Link
                     to="/vehicles"
-                    className="flex items-center justify-center gap-2 bg-[#e11d2e] hover:bg-[#c01727] text-white px-4 py-3 rounded-lg text-sm font-semibold transition-colors"
+                    className="flex items-center justify-center gap-2 bg-[#e11d2e] hover:bg-[#c01727] text-white py-3 rounded-lg text-sm font-semibold transition-colors"
                     style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700 }}
                   >
                     Inquire Now
                   </Link>
+                </div>
+                <div className="pt-4 border-t border-white/10">
+                  <a
+                    href="tel:+94112345678"
+                    className="flex items-center justify-center gap-2 text-white/70 hover:text-white py-3 rounded-lg text-sm transition-colors"
+                  >
+                    <Phone size={14} />
+                    <span style={{ fontFamily: 'Inter, sans-serif' }}>+94 11 234 5678</span>
+                  </a>
                 </div>
               </div>
             </motion.div>

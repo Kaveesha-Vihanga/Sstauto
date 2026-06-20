@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CheckCircle, Search, MessageCircle, ArrowRight } from 'lucide-react';
+import { CircleCheck as CheckCircle, Search, MessageCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { brands } from '../data/vehicles';
 
@@ -75,8 +75,8 @@ export default function VehicleRequestPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
-              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-8 mb-6">
-                <h2 className="text-[#0a0a0a] mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem' }}>
+              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-8 mb-6">
+                <h2 className="text-[#0a0a0a] mb-4 sm:mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1.1rem, 3vw, 1.25rem)' }}>
                   Vehicle Specifications
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -125,8 +125,8 @@ export default function VehicleRequestPage() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-8 mb-6">
-                <h2 className="text-[#0a0a0a] mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem' }}>
+              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-8 mb-6">
+                <h2 className="text-[#0a0a0a] mb-4 sm:mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1.1rem, 3vw, 1.25rem)' }}>
                   Budget & Timeline
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -147,8 +147,8 @@ export default function VehicleRequestPage() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-8">
-                <h2 className="text-[#0a0a0a] mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem' }}>
+              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 sm:p-8">
+                <h2 className="text-[#0a0a0a] mb-4 sm:mb-6" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1.1rem, 3vw, 1.25rem)' }}>
                   Your Contact Details
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -173,11 +173,11 @@ export default function VehicleRequestPage() {
           </div>
 
           <div className="space-y-5">
-            <div className="bg-[#0a0a0a] rounded-2xl p-6 text-white">
+            <div className="bg-[#0a0a0a] rounded-2xl p-5 sm:p-6 text-white">
               <div className="w-10 h-10 bg-[#e11d2e]/20 rounded-xl flex items-center justify-center mb-4">
                 <Search size={18} className="text-[#e11d2e]" />
               </div>
-              <h3 className="text-white mb-3" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.1rem' }}>
+              <h3 className="text-white mb-3" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 'clamp(1rem, 2.5vw, 1.1rem)' }}>
                 How Vehicle Sourcing Works
               </h3>
               <div className="space-y-4">
